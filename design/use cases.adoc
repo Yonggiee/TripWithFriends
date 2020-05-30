@@ -1,0 +1,15 @@
+Use Cases
+
+As a user, I want to be able to save expenses so I can keep track of my spendings.
+As a user, I want to be able to see a list of all the expenses(name and value) of a trip.
+As a user, I want to be able to exclude users from trip in shared calculations.
+As a user, I want to filter the types of expenses(type/shared/location/date).
+As a user, I want to be able to search for expenses.
+As a user, I want to hide the expenses that I am not included in but still be able to see them if I am in the same trip.
+As a user, I want to be able to export my expenses into an excel sheet or upload as google sheets.
+As a user, I want my expenses to be displayed in days as default.
+As a user, I want to have a limit to let me know if I exceded the amount.
+
+As a user, I want to upload photos to a shared google drive folder.
+As a user, I want to create shared google drive folders.
+As a user, I want to be able to import google drive folders.

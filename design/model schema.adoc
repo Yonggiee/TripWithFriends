@@ -1,0 +1,21 @@
+Users(signup)
+- username
+- password
+- savedname: Text
+
+Trip
+- Users: ForeignKey
+- Location: Country
+- Description: Text
+
+Spending
+- Trip: ForeignKay
+- What: Text
+- Description: Text
+- How much: Dollar
+- Date: date
+- Type(food/souvenir/leisure): Enum(?)
+- Share: boolean
+- Users (share with who): ForeignKey
+- Location(google map?)
+- Photo(?)
