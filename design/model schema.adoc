@@ -4,11 +4,12 @@ Users(signup)
 - savedname: Text
 
 Trip
+- Name: Text
 - Users: ForeignKey
 - Location: Country
 - Description: Text
 
-Spending
+Expense
 - Trip: ForeignKay
 - What: Text
 - Description: Text
