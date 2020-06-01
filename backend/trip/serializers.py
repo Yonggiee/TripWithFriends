@@ -9,3 +9,4 @@ class TripSerializer(serializers.ModelSerializer):
     class Meta:
         model = Trip
         fields = '__all__'
+

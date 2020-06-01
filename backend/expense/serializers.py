@@ -1,5 +1,6 @@
 from rest_framework import serializers
 
+from trip.models import Trip
 from user.serializers import UserSerializer
 from .models import Expense
 
@@ -9,3 +10,10 @@ class ExpenseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Expense
         fields = '__all__'
+
+class TripExpenseSerializer(serializers.ModelSerializer):
+    expense = ExpenseSerializer(many=True)
+
+    class Meta:
+        model = Trip
+        fields = ('expense',)
