@@ -11,3 +11,5 @@ class Trip(models.Model):
     desc = models.TextField();
     members = models.ManyToManyField(settings.AUTH_USER_MODEL, 
                                     related_name='trip')
+    trip_start = models.DateField(auto_now_add=False)
+    trip_end = models.DateField(auto_now_add=False)
