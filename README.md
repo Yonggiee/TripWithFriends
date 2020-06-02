@@ -3,7 +3,7 @@
 A mobile application to assist in tracking of expenses and keeping a collective photo album when you go on a trip with your friends.
 
 Frontend
-- NativeScript + Angular (TBC)
+- Angular
 
 Backend
 - Django

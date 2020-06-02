@@ -1,2 +1,5 @@
 NativeScript
 - nativescript.org
+- tns run ios --bundle / tns run android --bundle
+- every component has module id unlike in web angular
+- Uses NativeScriptRouterModule instead of normal router
