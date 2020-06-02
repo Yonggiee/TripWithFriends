@@ -9,6 +9,8 @@ As a user, I want to hide the expenses that I am not included in but still be ab
 As a user, I want to be able to export my expenses into an excel sheet or upload as google sheets.
 As a user, I want my expenses to be displayed in days as default.
 As a user, I want to have a limit to let me know if I exceded the amount.
+As a user, I want to have a quick access calculator to calculate price per person.
+As a user, I want my expenses to be in my home currency even though I enter in foreign country.
 
 As a user, I want to upload photos to a shared google drive folder.
 As a user, I want to create shared google drive folders.
