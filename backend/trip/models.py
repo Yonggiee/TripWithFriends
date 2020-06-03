@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.db import models
+from taggit.managers import TaggableManager
 
 # Create your models here.
 # - Users: ForeignKey
@@ -13,3 +14,4 @@ class Trip(models.Model):
                                     related_name='trip')
     trip_start = models.DateField(auto_now_add=False)
     trip_end = models.DateField(auto_now_add=False)
+    tags = TaggableManager()
