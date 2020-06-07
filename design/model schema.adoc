@@ -8,6 +8,7 @@ Trip
 - Users: ForeignKey
 - Location: Country
 - Description: Text
+- Tags
 
 Expense
 - Trip: ForeignKay

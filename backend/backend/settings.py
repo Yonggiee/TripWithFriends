@@ -25,7 +25,7 @@ SECRET_KEY = 'p=u1+#410xq96i#w@b*y6zj0-j99_lv$o1e*q+822t+h8t6j(v'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0']
 
 CORS_ORIGIN_WHITELIST = [
     "http://localhost:4200"
@@ -131,3 +131,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 1
+}
