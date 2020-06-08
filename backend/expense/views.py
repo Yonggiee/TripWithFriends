@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from rest_framework import generics
 from rest_framework import mixins
+from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework.pagination import PageNumberPagination
 
@@ -11,12 +11,13 @@ from .serializers import ExpenseSerializer, TripExpenseSerializer
 # Create your views here.
 
 class ExpenseList(mixins.CreateModelMixin,
-               generics.GenericAPIView):
+                  mixins.RetrieveModelMixin,
+                  viewsets.GenericViewSet):
     queryset = Trip.objects.all()
     serializer_class = TripExpenseSerializer
     pagination_class = PageNumberPagination
 
-    def get(self, request, *args, **kwargs):
+    def retrieve(self, request, *args, **kwargs):
         expenses = ExpenseSerializer(self.get_object().expense, many=True)
         expenses_json = expenses.data
         return Response(expenses_json)

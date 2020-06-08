@@ -1,9 +1,7 @@
-from django.conf.urls import url
-from rest_framework.urlpatterns import format_suffix_patterns
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
 from .views import TripList
 
-urlpatterns = [
-    url(r'^trips/$', TripList.as_view(), name='trip-list'),
-]
-
-urlpatterns = format_suffix_patterns(urlpatterns)
+# Create a router and register our viewsets with it.
+trip_router = DefaultRouter()
+trip_router.register(r'trips', TripList)

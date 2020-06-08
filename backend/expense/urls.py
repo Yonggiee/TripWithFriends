@@ -1,10 +1,8 @@
-from django.conf.urls import url
-from rest_framework.urlpatterns import format_suffix_patterns
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
 from .views import ExpenseList
 
-urlpatterns = [
-    url(r'^trip/(?P<pk>[0-9]+)/expenses/$',
-        ExpenseList.as_view(), name='trip-expenses')
-]
+# Create a router and register our viewsets with it.
+expense_router = DefaultRouter()
+expense_router.register(r'trip', ExpenseList, basename='expenses')
 
-urlpatterns = format_suffix_patterns(urlpatterns)

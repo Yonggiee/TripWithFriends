@@ -15,3 +15,7 @@ class Trip(models.Model):
     trip_start = models.DateField(auto_now_add=False)
     trip_end = models.DateField(auto_now_add=False)
     tags = TaggableManager()
+
+    def __str__(self):
+        return self.name
+    

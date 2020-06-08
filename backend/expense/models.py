@@ -26,3 +26,6 @@ class Expense(models.Model):
     spenders = models.ManyToManyField(settings.AUTH_USER_MODEL, 
                                     related_name='expense')
 
+    def __str__(self):
+        return self.name
+    
