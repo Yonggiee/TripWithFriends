@@ -19,11 +19,9 @@ from django.urls import path
 from rest_framework.routers import DefaultRouter
 
 from trip.urls import trip_router
-from expense.urls import expense_router
 
 router = DefaultRouter()
 router.registry.extend(trip_router.registry)
-router.registry.extend(expense_router.registry)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
