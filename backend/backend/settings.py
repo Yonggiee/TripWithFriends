@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'taggit',
+    'taggit_serializer',
     'expense',
     'trip'
 ]
