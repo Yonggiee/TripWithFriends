@@ -9,7 +9,7 @@ from taggit.managers import TaggableManager
 
 class Trip(models.Model):
     name = models.CharField(max_length=200)
-    desc = models.TextField();
+    desc = models.TextField(null=True)
     members = models.ManyToManyField(settings.AUTH_USER_MODEL, 
                                     related_name='trip')
     trip_start = models.DateField(auto_now_add=False, null=True)

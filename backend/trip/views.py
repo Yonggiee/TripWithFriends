@@ -23,6 +23,8 @@ class TripList(mixins.ListModelMixin,
             return TripSerializer
         if self.action == 'retrieve':
             return TripDetailedSerializer
+        if self.action == 'create':
+            return TripDetailedSerializer
         return TripSerializer
 
     @action(methods=['get'], detail=True,

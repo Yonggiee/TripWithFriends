@@ -13,7 +13,7 @@ class ExpenseType(Enum):
 
 class Expense(models.Model):
     name = models.CharField(max_length=200)
-    desc = models.TextField()
+    desc = models.TextField(null=True)
     date = models.DateField(auto_now_add=False, null=True)
     is_shared = models.BooleanField()
     money_value = models.DecimalField(max_digits=9, decimal_places=2)
