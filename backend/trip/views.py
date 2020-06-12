@@ -23,7 +23,7 @@ class TripList(mixins.ListModelMixin,
             return TripSerializer
         if self.action == 'retrieve':
             return TripDetailedSerializer
-        return serializers.Default
+        return TripSerializer
 
     @action(methods=['get'], detail=True,
             url_path='expenses', url_name='get-expenses')
