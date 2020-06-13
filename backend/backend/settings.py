@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'taggit',
     'taggit_serializer',
+    'users',
+    'profiles',
     'expense',
     'trip'
 ]
@@ -94,6 +96,7 @@ DATABASES = {
     },
 }
 
+AUTH_USER_MODEL = 'users.CustomUser'
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators

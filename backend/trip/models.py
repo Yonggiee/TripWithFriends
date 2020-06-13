@@ -12,8 +12,8 @@ class Trip(models.Model):
     desc = models.TextField(blank=True)
     members = models.ManyToManyField(settings.AUTH_USER_MODEL, 
                                     related_name='trip')
-    trip_start = models.DateField(auto_now_add=False, blank=True)
-    trip_end = models.DateField(auto_now_add=False, blank=True)
+    trip_start = models.DateField(auto_now_add=False, blank=True, null=True)
+    trip_end = models.DateField(auto_now_add=False, blank=True, null=True)
     tags = TaggableManager()
 
     def __str__(self):

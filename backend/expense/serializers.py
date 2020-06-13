@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 from trip.models import Trip
-from user.serializers import UserSerializer
+from users.serializers import UserSerializer
 from .models import Expense
 
 class ExpenseSerializer(serializers.ModelSerializer):

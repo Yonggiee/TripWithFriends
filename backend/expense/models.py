@@ -14,7 +14,7 @@ class ExpenseType(Enum):
 class Expense(models.Model):
     name = models.CharField(max_length=200)
     desc = models.TextField(blank=True)
-    date = models.DateField(auto_now_add=False, blank=True)
+    date = models.DateField(auto_now_add=False, blank=True, null=True)
     money_value = models.DecimalField(max_digits=9, decimal_places=2)
     expense_type = models.CharField(max_length=8,
                                     choices=[(typ.name, typ.value)
