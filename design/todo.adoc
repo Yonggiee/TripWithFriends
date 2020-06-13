@@ -1,0 +1,14 @@
+backend
+- Implement history to revert
+- Tags deleted when trips deleted (using signal)
+- POST expense
+
+frontend
+- implement mobile frontend
+- implement web frontend
+
+deployment
+- Use RDS instead
+
+
+
