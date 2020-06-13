@@ -9,13 +9,14 @@ from taggit.managers import TaggableManager
 
 class Trip(models.Model):
     name = models.CharField(max_length=200)
-    desc = models.TextField(null=True)
+    desc = models.TextField(blank=True)
     members = models.ManyToManyField(settings.AUTH_USER_MODEL, 
                                     related_name='trip')
-    trip_start = models.DateField(auto_now_add=False, null=True)
-    trip_end = models.DateField(auto_now_add=False, null=True)
+    trip_start = models.DateField(auto_now_add=False, blank=True)
+    trip_end = models.DateField(auto_now_add=False, blank=True)
     tags = TaggableManager()
 
     def __str__(self):
-        return self.name
+        members = ','.join(str(member) for member in self.members.all())
+        return "{}, {{{}}}".format(self.name, members)
     
