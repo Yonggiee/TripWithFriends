@@ -18,5 +18,5 @@ class Trip(models.Model):
 
     def __str__(self):
         members = ','.join(str(member) for member in self.members.all())
-        return "{}, {{{}}}".format(self.name, members)
+        return "pk: {}, name: {}, members: {{{}}}".format(self.pk, self.name, members)
     

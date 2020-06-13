@@ -3,7 +3,9 @@ from rest_framework import mixins
 from rest_framework import viewsets
 from rest_framework.decorators import action
 from rest_framework.pagination import PageNumberPagination
+from rest_framework.response import Response
 
+from expense.models import Expense
 from expense.serializers import ExpenseSerializer, TripExpenseSerializer
 from .models import Trip
 from .serializers import TripSerializer, TripDetailedSerializer
@@ -39,3 +41,13 @@ class TripList(mixins.ListModelMixin,
         expenses = ExpenseSerializer(queryset, many=True)
         expenses_json = expenses.data
         return Response(expenses_json)
+    
+    @action(methods=['post'], detail=True,
+            url_path='expense', url_name='post-expense')
+    def post_expense(self, request, pk=None):
+        serializer = ExpenseSerializer(data=request.data)
+        if (serializer.is_valid(raise_exception=True)):
+            new_expense = serializer.save()
+            return Response(serializer.data)
+        else:
+            return Response(serializer.errors)
