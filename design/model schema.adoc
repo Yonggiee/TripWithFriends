@@ -17,7 +17,6 @@ Expense
 - How much: Dollar
 - Date: date
 - Type(food/souvenir/leisure): Enum(?)
-- Share: boolean
 - Users (share with who): ForeignKey
 - Location(google map?)
 - Photo(?)
