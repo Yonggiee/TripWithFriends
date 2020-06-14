@@ -11,3 +11,6 @@ create super user:
 
 stop:
 	docker stop twf_web_1 twf_db_1
+
+make_migrations:
+	docker-compose -p twf exec web python manage.py makemigrations

@@ -19,8 +19,10 @@ from django.urls import path
 from rest_framework.routers import DefaultRouter
 
 from trip.urls import trip_router
+from users.urls import user_router
 
 router = DefaultRouter()
+router.registry.extend(user_router.registry)
 router.registry.extend(trip_router.registry)
 
 urlpatterns = [

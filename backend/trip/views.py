@@ -12,7 +12,7 @@ from .serializers import TripSerializer, TripDetailedSerializer
 
 # Create your views here.
 
-class TripList(mixins.ListModelMixin,
+class TripViewSet(mixins.ListModelMixin,
                 mixins.RetrieveModelMixin,
                 mixins.CreateModelMixin,
                 viewsets.GenericViewSet):

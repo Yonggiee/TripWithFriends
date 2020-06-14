@@ -1,7 +1,9 @@
 from django.conf import settings
 from django.db import models
 from enum import Enum
+
 from trip.models import Trip
+from profiles.models import Profile
 
 # Location(google map?)
 
@@ -22,7 +24,7 @@ class Expense(models.Model):
     trip = models.ForeignKey(Trip,
                              on_delete=models.CASCADE,
                              related_name='expense')
-    spenders = models.ManyToManyField(settings.AUTH_USER_MODEL, 
+    spenders = models.ManyToManyField(Profile, 
                                     related_name='expense')
 
     def __str__(self):

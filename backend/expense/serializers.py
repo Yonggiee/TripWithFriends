@@ -1,11 +1,11 @@
 from rest_framework import serializers
 
 from trip.models import Trip
-from users.serializers import UserSerializer
+from profiles.serializers import ProfileSerializer
 from .models import Expense
 
 class ExpenseSerializer(serializers.ModelSerializer):
-    spenders = UserSerializer(read_only=True, many=True)
+    spenders = ProfileSerializer(read_only=True, many=True)
 
     class Meta:
         model = Expense

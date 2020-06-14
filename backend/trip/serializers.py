@@ -2,7 +2,7 @@ from rest_framework import serializers
 from taggit_serializer.serializers import (TagListSerializerField,
                                            TaggitSerializer)
 
-from users.serializers import UserSerializer
+from profiles.serializers import ProfileSerializer
 from .models import Trip
 
 class TripSerializer(TaggitSerializer, serializers.ModelSerializer):
@@ -13,7 +13,7 @@ class TripSerializer(TaggitSerializer, serializers.ModelSerializer):
         fields = ('id', 'name', 'trip_start', 'trip_end', 'tags')
 
 class TripDetailedSerializer(TaggitSerializer, serializers.ModelSerializer):
-    members = UserSerializer(read_only=True, many=True)
+    members = ProfileSerializer(read_only=True, many=True)
     tags = TagListSerializerField()
 
     class Meta:
