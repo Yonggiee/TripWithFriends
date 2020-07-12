@@ -24,7 +24,7 @@ export class TripListComponent implements OnInit, OnDestroy {
   getTrips(): void {
     this.tripSubscription = this.tripService.getAllTrips().subscribe(trips => {
       this.trips = trips;
-    })
+    });
   }
 
 }
