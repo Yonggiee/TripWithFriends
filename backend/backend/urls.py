@@ -17,6 +17,7 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from django.urls import path
 from rest_framework.routers import DefaultRouter
+from rest_framework_simplejwt import views as jwt_views
 
 from trip.urls import trip_router
 from users.urls import user_router
@@ -27,6 +28,10 @@ router.registry.extend(trip_router.registry)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/token/', jwt_views.TokenObtainPairView.as_view(),
+         name='token_obtain_pair'),
+    path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(),
+         name='token_refresh'),
     path('', include(router.urls))
 ]
 

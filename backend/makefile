@@ -6,7 +6,7 @@ init:
 	sleep 5
 	docker-compose -p twf exec web python manage.py migrate
 
-create super user:
+create superuser:
 	docker-compose -p twf run web python manage.py createsuperuser
 
 stop:
@@ -14,3 +14,6 @@ stop:
 
 make_migrations:
 	docker-compose -p twf exec web python manage.py makemigrations
+
+down:
+	docker-compose -p twf down

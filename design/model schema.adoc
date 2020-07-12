@@ -1,12 +1,15 @@
 Users(signup)
-- username
+- email
 - password
-- savedname: Text
-- Friends
+
+Profile
+- user
+- friends
+- name: Text
 
 Trip
 - Name: Text
-- Users: ForeignKey
+- Profiles: ForeignKey
 - Location: Country
 - Description: Text
 - Tags
@@ -18,6 +21,6 @@ Expense
 - How much: Dollar
 - Date: date
 - Type(food/souvenir/leisure): Enum(?)
-- Users (share with who): ForeignKey
+- Profiles (share with who): ForeignKey
 - Location(google map?)
 - Photo(?)
