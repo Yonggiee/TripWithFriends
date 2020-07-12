@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { baseurl, httpOptions } from '../commons.service';
+import { IntercomponentSignalerService } from '../intercomponent-signaler/intercomponent-signaler.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,10 @@ import { baseurl, httpOptions } from '../commons.service';
 export class UserService {
   errors: any = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private loginNotiService: IntercomponentSignalerService
+  ) {}
 
   login(loginDetails): void {
     this.http
@@ -17,6 +21,7 @@ export class UserService {
       .subscribe(
         (data) => {
           this.updateAfterLogin(data);
+          this.loginNotiService.triggerLoginService();
         },
         (err) => {
           this.errors = err['error'];
@@ -26,6 +31,7 @@ export class UserService {
 
   public logout() {
     localStorage.clear();
+    this.loginNotiService.triggerLoginService();
   }
 
   private updateAfterLogin(data): void {
