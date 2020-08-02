@@ -3,10 +3,12 @@ from rest_framework import mixins
 from rest_framework import viewsets
 from rest_framework.decorators import action
 from rest_framework.pagination import PageNumberPagination
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
 from expense.models import Expense
 from expense.serializers import ExpenseSerializer, TripExpenseSerializer
+from profiles.models import Profile
 from .models import Trip
 from .serializers import TripSerializer, TripDetailedSerializer
 
@@ -16,9 +18,13 @@ class TripViewSet(mixins.ListModelMixin,
                 mixins.RetrieveModelMixin,
                 mixins.CreateModelMixin,
                 viewsets.GenericViewSet):
-    queryset = Trip.objects.all().order_by('-trip_start')
     serializer_class = TripSerializer
     pagination_class = PageNumberPagination
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        profile = Profile.objects.get(user=self.request.user)
+        return Trip.objects.filter(members__in=[profile]).order_by('-trip_start')
 
     def get_serializer_class(self):
         if self.action == 'list':
@@ -47,7 +53,7 @@ class TripViewSet(mixins.ListModelMixin,
     def post_expense(self, request, pk=None):
         serializer = ExpenseSerializer(data=request.data)
         if (serializer.is_valid(raise_exception=True)):
-            new_expense = serializer.save()
+            serializer.save()
             return Response(serializer.data)
         else:
             return Response(serializer.errors)
