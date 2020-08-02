@@ -3,12 +3,15 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { baseurl, httpOptions } from '../commons.service';
 import { IntercomponentSignalerService } from '../intercomponent-signaler/intercomponent-signaler.service';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  errors: any = [];
+  errors: string = "";
+  private errorSignal = new Subject<string>();
+  loginErrorService = this.errorSignal.asObservable();
 
   constructor(
     private http: HttpClient,
@@ -24,7 +27,8 @@ export class UserService {
           this.loginNotiService.triggerLoginService();
         },
         (err) => {
-          this.errors = err['error'];
+          this.errors = err['error']['detail'];
+          this.errorSignal.next(this.errors);
         }
       );
   }
@@ -43,11 +47,11 @@ export class UserService {
 
   private updateAccess(token): void {
     localStorage.setItem('accessToken', token);
-    this.errors = [];
+    this.errors = "";
   }
 
   private updateRefresh(token): void {
     localStorage.setItem('refreshToken', token);
-    this.errors = [];
+    this.errors = "";
   }
 }

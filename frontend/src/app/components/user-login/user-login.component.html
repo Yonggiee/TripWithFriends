@@ -1,4 +1,7 @@
 <div class="background">
+    <div class="errors" *ngIf="errors!=''">
+        {{errors}}
+    </div>
     <form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <p>
             <label>Email:</label>

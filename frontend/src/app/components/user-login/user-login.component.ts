@@ -10,18 +10,23 @@ import { UserService } from 'src/app/services/user/user.service';
 })
 export class UserLoginComponent implements OnInit {
   isLoggedIn = false;
+  errors: string = "";
 
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', Validators.required),
   });
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService) {
+    this.userService.loginErrorService.subscribe(errors => {
+      this.errors = errors;
+    });
+  }
 
   ngOnInit(): void {}
 
   onSubmit() {
-    let loginDetails = this.loginForm.value;
+    const loginDetails = this.loginForm.value;
     this.userService.login(loginDetails);
   }
 }

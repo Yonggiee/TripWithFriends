@@ -1,5 +1,7 @@
 .background {
     background-image: url(images/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 100vh;
 }
 
@@ -12,4 +14,17 @@
     background-color: rgba(255, 255, 255, 0.356);
     border-radius: 7px;
     padding: 15px;
+}
+
+.errors {
+    position: relative;
+    top: 20%;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.356);
+    border-radius: 7px;
+    padding: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    word-wrap: break-word;
+    color: rgb(134, 48, 48);
 }
