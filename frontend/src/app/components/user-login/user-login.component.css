@@ -1,0 +1,15 @@
+.background {
+    background-image: url(images/background.jpg);
+    height: 100vh;
+}
+
+.form {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.356);
+    border-radius: 7px;
+    padding: 15px;
+}
