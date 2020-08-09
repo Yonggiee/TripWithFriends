@@ -11,6 +11,7 @@
             <label>Password:</label>
             <input type="password" formControlName="password">
         </p>
+        <button type="submit" [routerLink]="['/signup']">Signup</button>
         <button type="submit" [disabled]="!loginForm.valid">Submit</button>
     </form>
 </div>

@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user/user.service';
-import { IntercomponentSignalerService } from 'src/app/services/intercomponent-signaler/intercomponent-signaler.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-login',
@@ -18,18 +16,10 @@ export class UserLoginComponent implements OnInit {
     password: new FormControl('', Validators.required),
   });
 
-  constructor(private userService: UserService,
-              private loginNotiService: IntercomponentSignalerService,
-              private router: Router) {
+  constructor(private userService: UserService) {
     this.userService.loginErrorService.subscribe(errors => {
       this.errors = errors;
     });
-    this.loginNotiService.loginNotiService
-      .subscribe(isLogged => {
-        if(isLogged == true) {
-          this.router.navigate(['/trips']);
-        }
-      });
   }
 
   ngOnInit(): void {}

@@ -1,0 +1,31 @@
+.background {
+  background-image: url(../images/background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.form {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.356);
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.errors {
+  position: absolute;
+  top: 15%;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.356);
+  border-radius: 7px;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  word-wrap: break-word;
+  color: rgb(134, 48, 48);
+}
