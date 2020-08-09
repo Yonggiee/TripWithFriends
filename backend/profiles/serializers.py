@@ -5,7 +5,7 @@ from .models import Profile
 class ProfileSerializer(serializers.ModelSerializer):
 
     def to_representation(self, value):
-        return value.exposed_name
+        return value.name
 
     class Meta:
         model = Profile

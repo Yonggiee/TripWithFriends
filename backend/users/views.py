@@ -21,8 +21,8 @@ class UserViewSet(viewsets.GenericViewSet):
             password = serializer.data['password']
             encrypted_password = hashers.make_password(password)
             new_user = CustomUser.objects.create(email=email, password=encrypted_password)
-            exposed_name = serializer.data['exposed_name']
-            new_profile = Profile.objects.create(user=new_user, exposed_name=exposed_name)
+            name = serializer.data['name']
+            new_profile = Profile.objects.create(user=new_user, name=name)
             return Response(serializer.data) ## changed to remove password/created msg
         else:
             return Response(serializer.errors)

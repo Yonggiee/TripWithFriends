@@ -4,7 +4,7 @@ from django.db import models
 from .models import CustomUser
 
 class UserSerializer(serializers.ModelSerializer):
-    exposed_name = serializers.CharField(max_length=20)
+    name = serializers.CharField(max_length=20)
     password_confirm = serializers.CharField(max_length=20)
 
     def validate(self, data):
@@ -12,7 +12,7 @@ class UserSerializer(serializers.ModelSerializer):
         Check password and password_confirm are the same
         """
         if data['password'] != data['password_confirm']:
-            raise serializers.ValidationError("password and password_confirm are not the same")
+            raise serializers.ValidationError("Password and Retype Password do not match")
         return data
 
     class Meta:
@@ -21,5 +21,5 @@ class UserSerializer(serializers.ModelSerializer):
             "email", 
             "password", 
             "password_confirm", 
-            "exposed_name"
+            "name"
         )
