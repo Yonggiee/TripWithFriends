@@ -10,7 +10,7 @@ class TripSerializer(TaggitSerializer, serializers.ModelSerializer):
 
     class Meta:
         model = Trip
-        fields = ('id', 'name', 'trip_start', 'trip_end', 'tags')
+        fields = ('id', 'name', 'country', 'trip_start', 'trip_end', 'tags')
 
 class TripDetailedSerializer(TaggitSerializer, serializers.ModelSerializer):
     members = ProfileSerializer(read_only=True, many=True)
@@ -18,5 +18,6 @@ class TripDetailedSerializer(TaggitSerializer, serializers.ModelSerializer):
 
     class Meta:
         model = Trip
-        fields = ('id', 'name', 'desc', 'members',
+        fields = ('id', 'name', 'desc', 
+                  'country', 'members',
                   'trip_start', 'trip_end', 'tags')
