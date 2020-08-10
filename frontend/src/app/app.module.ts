@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { UserLoginComponent } from './components/user-page/user-login/user-login.component';
 import { UserSignUpComponent } from './components/user-page/user-sign-up/user-sign-up.component';
+import { UserSuccessComponent } from './components/user-page/user-success/user-success.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { UserSignUpComponent } from './components/user-page/user-sign-up/user-si
     MenuHeaderComponent,
     routingComponents,
     UserLoginComponent,
-    UserSignUpComponent
+    UserSignUpComponent,
+    UserSuccessComponent,
   ],
   imports: [
     BrowserModule,

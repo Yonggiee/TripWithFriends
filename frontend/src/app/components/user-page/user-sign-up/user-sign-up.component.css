@@ -1,3 +1,9 @@
+label {
+  display: inline-block;
+  width: 70px;
+  text-align: left;
+}
+
 .background {
   background-image: url(../images/background.jpg);
   background-repeat: no-repeat;
@@ -28,4 +34,8 @@
   width: 70%;
   word-wrap: break-word;
   color: rgb(134, 48, 48);
+}
+
+.buttons {
+  float: right;
 }

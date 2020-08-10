@@ -1,35 +1,30 @@
 <div class="background">
-    <div *ngIf="!created">
-        <div class="errors" *ngIf="errors!='' || signUpForm.hasError('notMatched') && signUpForm.get('password_confirm').touched">
-            <p *ngIf="errors!=''">
-                {{errors}}
-            </p>
-            <p *ngIf="signUpForm.hasError('notMatched') && signUpForm.get('password_confirm').touched">Passwords do not match
-            </p>
-        </div>
-        <form class="form" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
-            <p>
-                <label>Name:</label>
-                <input type="name" formControlName="name">
-            </p>
-            <p>
-                <label>Email:</label>
-                <input type="email" formControlName="email" value=""  autocomplete="new-email">
-            </p>
-            <p>
-                <label>Password:</label>
-                <input type="password" formControlName="password" value=""  autocomplete="new-password">
-            </p>
-            <p>
-                <label>Retype Password:</label>
-                <input type="password" formControlName="password_confirm">
-            </p>
+    <div class="errors" *ngIf="errors!='' || (signUpForm.hasError('notMatched') && signUpForm.get('password_confirm').touched)">
+        <p *ngIf="errors!=''">
+            {{errors}}
+        </p>
+        <p *ngIf="signUpForm.hasError('notMatched') && signUpForm.get('password_confirm').touched">Passwords do not match</p>
+    </div>
+    <form class="form" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+        <p>
+            <label>Name:</label>
+            <input type="name" formControlName="name">
+        </p>
+        <p>
+            <label>Email:</label>
+            <input type="email" formControlName="email" value=""  autocomplete="new-email">
+        </p>
+        <p>
+            <label>Password:</label>
+            <input type="password" formControlName="password" value=""  autocomplete="new-password">
+        </p>
+        <p>
+            <label>Retype Password:</label>
+            <input type="password" formControlName="password_confirm">
+        </p>
+        <div class="buttons">
             <button type="submit" [routerLink]="['']">Existing User</button>
             <button type="submit" [disabled]="!signUpForm.valid">Submit</button>
-        </form>
-    </div>
-    <div *ngIf="created">
-        <p>Sign Up was Successful!</p>
-        <button type="submit" [routerLink]="['']">Click to Login</button>
-    </div>
+        </div>
+    </form>
 </div>

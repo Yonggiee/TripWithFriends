@@ -15,14 +15,13 @@ export class UserSignUpComponent implements OnInit {
     return password && passwordConfirm && password.value === passwordConfirm.value ? null : { notMatched : true };
   };
   errors: string = "";
-  created: boolean = false;
 
   signUpForm = new FormGroup({
     name: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', Validators.required),
-    password_confirm: new FormControl('', ),
-  }, );
+    password_confirm: new FormControl('',),
+  }, { validators: this.passwordMatchValidator });
 
   constructor(private userService: UserService) {
     this.userService.loginErrorService.subscribe(errors => {

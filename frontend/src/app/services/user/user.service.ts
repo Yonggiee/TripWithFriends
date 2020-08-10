@@ -42,7 +42,7 @@ export class UserService {
       .post(baseurl + '/user/', signUpDetails, httpOptions)
       .subscribe(
         (response) => {
-          this.router.navigate(['']);
+          this.router.navigate(['/signup-success']);
         },
         (err) => {
           const errors = err['error'];

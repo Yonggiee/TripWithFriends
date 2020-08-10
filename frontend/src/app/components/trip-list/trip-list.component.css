@@ -1,0 +1,16 @@
+.background {
+    height: 100vh;
+    background-color: rgba(217, 197, 235, 0.863);
+}
+
+.trip {
+    background-color: rgba(255, 255, 255, 0.287);
+    border-radius: 10px;
+    padding: 15px;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+ul {
+    padding-inline-start: 0px;
+}
