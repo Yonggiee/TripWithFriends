@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { baseurl, httpOptions } from '../commons.service';
-import { IntercomponentSignalerService } from '../intercomponent-signaler/intercomponent-signaler.service';
 import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
 
@@ -15,7 +14,6 @@ export class UserService {
 
   constructor(
     private http: HttpClient,
-    private loginNotiService: IntercomponentSignalerService,
     private router: Router
   ) {}
 
@@ -26,7 +24,6 @@ export class UserService {
       .subscribe(
         (data) => {
           this.updateAfterLogin(data);
-          this.loginNotiService.triggerLoginService();
           this.router.navigate(['/trips']);
         },
         (err) => {
@@ -57,7 +54,6 @@ export class UserService {
 
   public logout() {
     localStorage.clear();
-    this.loginNotiService.triggerLoginService();
   }
 
   private updateAfterLogin(data): void {
