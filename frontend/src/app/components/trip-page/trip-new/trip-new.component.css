@@ -1,0 +1,9 @@
+.background {
+  height: 100vh;
+  background-color: rgba(217, 197, 235, 0.863);
+}
+
+.top {
+  height: 25vh;
+  background-color: black;
+}

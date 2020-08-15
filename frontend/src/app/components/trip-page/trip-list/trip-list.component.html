@@ -1,0 +1,11 @@
+<div class="background">
+    <div class="top">
+        <button type="button" [routerLink]="['/trips/new']">New</button>
+    </div>
+    <ul>
+        <div class="trip" *ngFor="let trip of trips">
+            <h3>{{ trip.name }}</h3>
+            <li *ngFor="let tag of trip.tags.all ">{{ tag }}</li>
+        </div>
+    </ul>
+</div>

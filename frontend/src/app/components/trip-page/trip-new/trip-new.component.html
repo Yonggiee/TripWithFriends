@@ -1,0 +1,24 @@
+<div class="background">
+    <div class="top">
+        <button type="button" [routerLink]="['/trips']">back</button>
+    </div>
+    <form class="form" [formGroup]="tripForm">
+        <p>
+            <label>Name:</label>
+            <input type="text" formControlName="name">
+        </p>
+        <p>
+            <label>Country:</label>
+            <mat-form-field appearance="fill">
+            <mat-select>
+                <mat-option *ngFor="let country of countries" [value]="country">
+                    {{country}}
+                </mat-option>
+            </mat-select>
+            </mat-form-field>
+        </p>
+        <div class="buttons">
+            <button type="submit" [disabled]="!tripForm.valid">Submit</button>
+        </div>
+    </form>
+</div>
