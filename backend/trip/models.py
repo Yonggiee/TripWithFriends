@@ -12,7 +12,7 @@ from profiles.models import Profile
 
 country_list = ['Singapore', 'Malaysia', 'Thailand', 'South Korea', 
                 'Japan', 'UK', 'USA', 'China', 'Vietnam', 'Indonesia',
-                'Myammar', 'HongKong']
+                'Myammar', 'HongKong', 'Others']
 
 class Trip(models.Model):
     name = models.CharField(max_length=200)
