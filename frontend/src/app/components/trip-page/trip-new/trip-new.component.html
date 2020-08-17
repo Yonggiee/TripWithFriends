@@ -2,7 +2,7 @@
     <div class="top">
         <button type="button" [routerLink]="['/trips']">back</button>
     </div>
-    <form class="form" [formGroup]="tripForm">
+    <form class="form" [formGroup]="tripForm" (ngSubmit)="onSubmit()">
         <p>
             <label>Name:</label>
             <input type="text" formControlName="name">
@@ -10,13 +10,18 @@
         <p>
             <label>Country:</label>
             <mat-form-field appearance="fill">
-            <mat-select>
+            <mat-select formControlName="country">
                 <mat-option *ngFor="let country of countries" [value]="country">
                     {{country}}
                 </mat-option>
             </mat-select>
             </mat-form-field>
         </p>
+        <label>Tags:</label>
+        <div formArrayName="tags" *ngFor="let control of tripForm.get('tags')['controls']; let i=index">
+            <input type="text" formControlName="{{i}}">
+        </div>
+        <button type="button" (click)="addTagFormControl()">+</button>
         <div class="buttons">
             <button type="submit" [disabled]="!tripForm.valid">Submit</button>
         </div>
