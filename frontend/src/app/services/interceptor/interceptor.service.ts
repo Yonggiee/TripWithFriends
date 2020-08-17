@@ -12,15 +12,12 @@ export class InterceptorService implements HttpInterceptor{
   constructor(private http: HttpClient) { }
 
   intercept(req, next) {
-    if (req.method == "POST") {
-      return next.handle(this.addToken(req)).pipe(catchError(error => {
-        if (error instanceof HttpErrorResponse && error.status === 401) {
-          return this.handle401Error(req, next);
-        }
-        return throwError(error);
-      }));
-    }
-    return next.handle(req);
+    return next.handle(req).pipe(catchError(error => {
+      if (error instanceof HttpErrorResponse && error.status === 401) {
+        return this.handle401Error(req, next);
+      }
+      return throwError(error);
+    }));
   }
 
   handle401Error(req, next) {

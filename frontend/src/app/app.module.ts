@@ -8,6 +8,7 @@ import { MenuHeaderComponent } from './components/menu-header/menu-header.compon
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { interceptorProvider } from './services/interceptor/interceptorProvider';
 
 @NgModule({
   declarations: [AppComponent, MenuHeaderComponent, routingComponents],
@@ -19,7 +20,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     NoopAnimationsModule,
   ],
-  providers: [],
+  providers: [interceptorProvider],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
